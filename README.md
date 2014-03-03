@@ -2,6 +2,8 @@
 
 This gem provides flowplayer flash player for your Rails application.
 
+http://flowplayer.org/
+
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -18,20 +20,31 @@ Or install it yourself as:
 
 ## Usage
 
-    <a id='video' style='display:block;width:512px;height312px;'>
+    <a id='video' href="video_url.mp4" style='display:block; width:480px; height:400px;'>
 
   For JQuery
 
-    = flowplayer_for :video, '/flowplayer.swf', 'jquery' do |player|
-      - player.playlist [{:url => "video_still.jpg" }, {:url => "video_512x288.flv", :autoPlay => false, :autoBuffering => true }]
-      - player.onLoad do
-        - 'this.unmute();'
+    <%= flowplayer_for :video, asset_path('flowplayer-3.2.18.swf'), 'jquery' do |player| %>
+      <% player.clip autoPlay: true, autoBuffering: true, scaling: "fit" %>
+      <% player.play replayLabel: nil, opacity: 0 %>
+      <% player.canvas backgroundColor: "transparent", backgroundGradient: "none" %>
+      <% player.plugins controls: { backgroundColor: "rgba(239, 239, 239, 0.1)", backgroundGradient: "none", all: false, scrubber: true, play: true, mute: true, fullscreen: true, autoHide: "always", height: "20px"} %>
+      <% player.onLoad do %>
+        <% 'this.unmute();' %>
+      <% end %>
+    <% end %>
+
   For Prototype
 
-    = flowplayer_for :video, '/flowplayer.swf', 'prototype' do |player|
-      - player.playlist [{:url => "video_still.jpg" }, {:url => "video_512x288.flv", :autoPlay => false, :autoBuffering => true }]
-      - player.onLoad do
-        - 'this.unmute();'
+    <%= flowplayer_for :video, asset_path('flowplayer-3.2.18.swf'), 'prototype' do |player| %>
+      <% player.clip autoPlay: true, autoBuffering: true, scaling: "fit" %>
+      <% player.play replayLabel: nil, opacity: 0 %>
+      <% player.canvas backgroundColor: "transparent", backgroundGradient: "none" %>
+      <% player.plugins controls: { backgroundColor: "rgba(239, 239, 239, 0.1)", backgroundGradient: "none", all: false, scrubber: true, play: true, mute: true, fullscreen: true, autoHide: "always", height: "20px"} %>
+      <% player.onLoad do %>
+        <% 'this.unmute();' %>
+      <% end %>
+    <% end %>
 
 ## Configs are the same ones here
 
