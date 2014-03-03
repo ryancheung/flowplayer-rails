@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["ryancheung.go@gmail.com"]
   spec.summary       = %q{Use Flowplayer with Rails 3}
   spec.description   = %q{This gem provides flowplayer flash player for your Rails 3 application.}
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/ryancheung/flowplayer-rails"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
