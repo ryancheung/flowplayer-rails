@@ -1,6 +1,6 @@
 # Flowplayer::Rails
 
-TODO: Write a gem description
+This gem provides flowplayer flash player for your Rails application.
 
 ## Installation
 
@@ -18,7 +18,24 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+    <a id='video' style='display:block;width:512px;height312px;'>
+
+  For JQuery
+
+    = flowplayer_for :video, '/flowplayer.swf', 'jquery' do |player|
+      - player.playlist [{:url => "video_still.jpg" }, {:url => "video_512x288.flv", :autoPlay => false, :autoBuffering => true }]
+      - player.onLoad do
+        - 'this.unmute();'
+  For Prototype
+
+    = flowplayer_for :video, '/flowplayer.swf', 'prototype' do |player|
+      - player.playlist [{:url => "video_still.jpg" }, {:url => "video_512x288.flv", :autoPlay => false, :autoBuffering => true }]
+      - player.onLoad do
+        - 'this.unmute();'
+
+## Configs are the same ones here
+
+  http://flowplayer.org/documentation/api/index.html
 
 ## Contributing
 
