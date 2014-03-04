@@ -12,12 +12,6 @@ module Flowplayer
           config.action_view.javascript_expansions[:defaults] |= defaults
         end
       end
-
-      initializer "flowplayer.configure_rails_initialization" do
-        ActionController::Base.instance_eval do
-          helper Flowplayer::Rails::Helper
-        end
-      end
     end
   end
 end
