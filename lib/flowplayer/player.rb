@@ -40,6 +40,9 @@ module Flowplayer
     def jquery(func)
       <<-EOS
       $(document).ready(function() {
+        if (document.getElementById("#{dom_id}") == null) {
+          return;
+        }
         #{func}
       });
       EOS
@@ -48,6 +51,9 @@ module Flowplayer
     def prototype(func)
       <<-EOS
         document.observe("dom:loaded", function() {
+          if (document.getElementById("#{dom_id}") == null) {
+            return;
+          }
           #{func}
         });
       EOS
